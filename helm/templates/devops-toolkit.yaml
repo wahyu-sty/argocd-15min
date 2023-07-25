@@ -16,7 +16,7 @@ spec:
         image:
           tag: latest
         ingress:
-          host: toolkit.$INGRESS_HOST.xio.io
+          host: toolkit.0a0b0109.nip.io
       version: v3
   destination:
     namespace: 15min
