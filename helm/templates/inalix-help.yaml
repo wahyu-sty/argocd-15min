@@ -16,6 +16,8 @@ spec:
       values: |
         image:
           tag: latest
+        imagePullSecrets:
+          - name: d-inalix-com-cred
         ingress:
           enabled: true
           hosts:
