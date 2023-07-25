@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: inalix-help-dj2
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    path: helm
+    repoURL: https://git.inalix.co.id/inalix/docs.git
+    targetRevision: v3.help.inalix.com
+    helm:
+      version: v3
+      values: |
+        image:
+          tag: dj2
+        imagePullSecrets:
+          - name: d-inalix-com-cred
+        ingress:
+          enabled: true
+          hosts:
+            - v2.help.0a0b0109.nip.io
+
+  destination:
+    namespace: inalix-dev
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
