@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: inalix-help
+  name: inalix-help-baru
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
