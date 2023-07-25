@@ -9,9 +9,14 @@ spec:
   project: default
   source:
     repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: HEAD
-    path: nginx
-
+    targetRevision: 15.1.1
+    chart: nginx
+    helm:
+      parameters:
+      - name: ingress.enabled
+        value: 'true'
+      - name: ingress.hostname
+        value: nginx.0a0b0109.nip.io
   destination:
     namespace: inalix-dev
     server: https://kubernetes.default.svc
