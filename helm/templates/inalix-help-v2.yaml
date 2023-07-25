@@ -19,9 +19,7 @@ spec:
         imagePullSecrets:
           - name: d-inalix-com-cred
         ingress:
-          enabled: true
-          hosts:
-            - v2.help.0a0b0109.nip.io
+          enabled: false
 
   destination:
     namespace: inalix-dev
