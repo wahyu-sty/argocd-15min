@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     path: helm
-    repoURL: https://github.com/inalix/docs.git
+    repoURL: https://git.inalix.co.id/inalix/docs.git
     targetRevision: HEAD
     helm:
       version: v3
