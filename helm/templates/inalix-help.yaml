@@ -15,7 +15,7 @@ spec:
       version: v3
       values: |
         image:
-          tag: latest
+          tag: v3
         imagePullSecrets:
           - name: d-inalix-com-cred
         ingress:
