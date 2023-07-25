@@ -10,7 +10,7 @@ spec:
   source:
     path: helm
     repoURL: https://git.inalix.co.id/inalix/docs.git
-    targetRevision: HEAD
+    targetRevision: v3.help.inalix.com
     helm:
       version: v3
       values: |
