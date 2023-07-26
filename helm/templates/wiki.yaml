@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wiki-demo
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 14.1.5
+    chart: dokuwiki
+    helm:
+      parameters:
+      - name: ingress.enabled
+        value: 'true'
+      - name: ingress.hostname
+        value: wiki.0a0b0109.nip.io
+      - name: persistance.size
+        value: 100Mi
+      - name: dokuwikiWikiName
+        value: "Demo Wiki with argo"
+  destination:
+    namespace: inalix-dev
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
