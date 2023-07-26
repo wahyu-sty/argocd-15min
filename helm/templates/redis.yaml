@@ -1,26 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argo-blue-green
+  name: redis
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    path: blue-green
-    repoURL: https://github.com/argoproj/argocd-example-apps.git
-    targetRevision: HEAD
-    helm:
-      version: v3
-      values: |
-        ingress:
-          enabled: true
-          hosts:
-            - blue.0a0b0109.nip.io
-
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 17.13.2
+    chart: redis
   destination:
-    namespace: inalix-dev
+    namespace: inalix-system
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
