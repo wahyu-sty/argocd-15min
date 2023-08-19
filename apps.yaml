@@ -6,7 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: devel
+  project: default
   source:
     path: helm
     repoURL: https://github.com/wahyu-sty/argocd-15min.git
