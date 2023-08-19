@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: learn-argocd-15min
-  namespace: argocd
+  namespace: inalix-system
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -10,8 +10,9 @@ spec:
   source:
     path: helm
     repoURL: https://github.com/wahyu-sty/argocd-15min.git
+    targetRevision: local
   destination:
-    namespace: 15min
+    namespace: devel
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
